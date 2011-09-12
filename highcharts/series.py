@@ -2,6 +2,7 @@
 The different types of series that can be charted.
 '''
 import options
+import types
 from common import *
 
 
@@ -45,9 +46,19 @@ class Series(DictBacked):
     def __setattr__(self, attr, val):
         '''Custom behavior for setting "data"'''
         if attr == 'data':
-            self.options['data'] = [x if isinstance(x, Point) else Point(x) for x in val]
+            self.options['data'] = [x if isinstance(x, (Point, types.NoneType)) else Point(x) for x in val]
         else:
             super(Series, self).__setattr__(attr, val)
+
+
+class AreaSeries(Series):
+    '''
+    An area chart series.
+
+    See http://www.highcharts.com/ref/#plotOptions-area for available options.
+    '''
+    series_type = 'area'
+    available_options = ['fillColor', 'fillOpacity', 'lineColor', 'threshold']
 
 
 class LineSeries(Series):
