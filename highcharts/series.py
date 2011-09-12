@@ -5,6 +5,29 @@ import options
 from common import *
 
 
+class Point(DictBacked):
+    '''
+    A specific data point in a series.
+
+    Points can be defined as Point objects, numbers, or (x, y) pairs of numbers.
+    See http://www.highcharts.com/ref/#point for available options.
+    '''
+    available_options = options.POINT
+
+    def __init__(self, data=None, **kwargs):
+        super(Point, self).__init__(**kwargs)
+        if data == None:
+            return
+        if isinstance(data, (list, tuple)) and len(data) == 2:
+            if isinstance(data[0], str):
+                self.name = data[0]
+            else:
+                self.x = data[0]
+            self.y = data[1]
+        else:
+            self.y = data
+
+
 class Series(DictBacked):
     '''
     The base class for any series type.
@@ -18,6 +41,13 @@ class Series(DictBacked):
         self.available_options += options.SERIES
         super(Series, self).__init__(**kwargs)
         self.data = data
+
+    def __setattr__(self, attr, val):
+        '''Custom behavior for setting "data"'''
+        if attr == 'data':
+            self.options['data'] = [x if isinstance(x, Point) else Point(x) for x in val]
+        else:
+            super(Series, self).__setattr__(attr, val)
 
 
 class LineSeries(Series):
@@ -37,4 +67,4 @@ class PieSeries(Series):
     See http://www.highcharts.com/ref/#plotOptions-pie for available options.
     '''
     series_type = 'pie'
-    available_options = ['size', 'slicedOffset', 'center']
+    available_options = ['size', 'sliced', 'slicedOffset', 'center']
