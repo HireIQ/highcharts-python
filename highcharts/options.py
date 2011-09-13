@@ -131,6 +131,7 @@ LEGEND_CONFIG = [
     'lineHeight',
     'margin',
     'reversed',
+    'shadow',
     'style',
     'symbolPadding',
     'symbolWidth',
