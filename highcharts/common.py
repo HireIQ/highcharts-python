@@ -24,11 +24,7 @@ class DictBacked(object):
                 value = value()
             self.options[key] = value
 
-        for key, value in kwargs.items():
-            if key in self.available_options:
-                self.options[key] = value
-            else:
-                raise AttributeError('Invalid option %s' % key)
+        self.update(**kwargs)
 
     def __setattr__(self, attr, val):
         if attr in self.available_options:
@@ -44,6 +40,14 @@ class DictBacked(object):
             return self.__dict__['options'].get(attr, None)
         else:
             raise AttributeError
+
+    def update(self, **kwargs):
+        '''A shortcut to set many options at once.'''
+        for key, value in kwargs.items():
+            if key in self.available_options:
+                self.options[key] = value
+            else:
+                raise AttributeError('Invalid option %s' % key)
 
     def as_json(self):
         return self.options
