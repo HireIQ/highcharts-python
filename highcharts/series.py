@@ -61,6 +61,16 @@ class AreaSeries(Series):
     available_options = ['fillColor', 'fillOpacity', 'lineColor', 'threshold']
 
 
+class ColumnSeries(Series):
+    '''
+    A column chart series.
+
+    See http://www.highcharts.com/ref/#plotOptions-column for available options.
+    '''
+    series_type = 'column'
+    available_options = ['borderColor', 'borderRadius', 'borderWidth', 'colorByPoint', 'groupPadding', 'minPointLength', 'pointPadding', 'pointWidth']
+
+
 class LineSeries(Series):
     '''
     A line chart series.
