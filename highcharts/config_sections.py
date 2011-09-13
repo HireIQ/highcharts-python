@@ -55,6 +55,9 @@ class XAxisConfig(ConfigSection):
     See http://www.highcharts.com/ref/#xAxis for available options.
     '''
     available_options = options.X_AXIS_CONFIG
+    defaults = {
+        "title": TitleConfig,
+    }
 
 
 class YAxisConfig(ConfigSection):
@@ -64,3 +67,6 @@ class YAxisConfig(ConfigSection):
     See http://www.highcharts.com/ref/#yAxis for available options.
     '''
     available_options = options.Y_AXIS_CONFIG
+    defaults = {
+        "title": TitleConfig,
+    }
