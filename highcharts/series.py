@@ -19,8 +19,8 @@ class Point(DictBacked):
         super(Point, self).__init__(**kwargs)
         if data == None:
             return
-        if isinstance(data, (list, tuple)) and len(data) == 2:
-            if isinstance(data[0], str):
+        if not isinstance(data, basestring) and hasattr(data, '__iter__') and len(data) == 2:
+            if isinstance(data[0], basestring):
                 self.name = data[0]
             else:
                 self.x = data[0]
