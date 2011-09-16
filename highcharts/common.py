@@ -1,6 +1,7 @@
 '''
 Common objects used in this package.
 '''
+import copy
 
 
 class HighchartError(Exception):
@@ -21,8 +22,9 @@ class DictBacked(object):
         for key, value in self.defaults.items():
             # If it is a ConfigSection, we instantiate it.
             if hasattr(value, '__bases__') and ConfigSection in value.__bases__:
-                value = value()
-            self.options[key] = value
+                self.options[key] = value()
+            else:
+                self.options[key] = copy.deepcopy(value)
 
         self.update(**kwargs)
 
