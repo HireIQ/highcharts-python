@@ -99,6 +99,15 @@ CHART_CONFIG = [
 ]
 
 
+CREDITS_CONFIG = [
+    'enabled',
+    'position',
+    'href',
+    'style',
+    'text'
+]
+
+
 SUBTITLE_CONFIG = [
     'align',
     'floating',

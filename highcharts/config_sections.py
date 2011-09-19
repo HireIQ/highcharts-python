@@ -9,7 +9,18 @@ class ChartConfig(ConfigSection):
 
     See http://www.highcharts.com/ref/#chart for available options.
     '''
+    defaults = {}
     available_options = options.CHART_CONFIG
+
+
+class CreditsConfig(ConfigSection):
+    '''
+    The 'credits' section of a Highcharts config.
+
+    See http://www.highcharts.com/ref/#credits for available options.
+    '''
+    defaults = {}
+    available_options = options.CREDITS_CONFIG
 
 
 class TitleConfig(ConfigSection):
@@ -18,6 +29,7 @@ class TitleConfig(ConfigSection):
 
     See http://www.highcharts.com/ref/#title for available options.
     '''
+    defaults = {}
     available_options = options.TITLE_CONFIG
 
 
@@ -27,6 +39,7 @@ class SubtitleConfig(ConfigSection):
 
     See http://www.highcharts.com/ref/#title for available options.
     '''
+    defaults = {}
     available_options = options.SUBTITLE_CONFIG
 
 
@@ -36,6 +49,7 @@ class LegendConfig(ConfigSection):
 
     See http://www.highcharts.com/ref/#legend for available options.
     '''
+    defaults = {}
     available_options = options.LEGEND_CONFIG
 
 
@@ -45,6 +59,7 @@ class TooltipConfig(ConfigSection):
 
     See http://www.highcharts.com/ref/#tooltip for available options.
     '''
+    defaults = {}
     available_options = options.TOOLTIP_CONFIG
 
 

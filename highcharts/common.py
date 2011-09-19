@@ -13,11 +13,13 @@ class DictBacked(object):
     A class that stores it's attributes in a dictionary
     and json encodes to the value of that dictionary.
     '''
-    defaults = {}
+    defaults = None
     available_options = []
 
     def __init__(self, **kwargs):
         self.options = {}
+        if self.defaults is None:
+            self.defaults = {}
 
         for key, value in self.defaults.items():
             # If it is a ConfigSection, we instantiate it.

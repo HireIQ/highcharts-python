@@ -14,6 +14,7 @@ class Chart(DictBacked):
     defaults = {
         "series": [],
         "chart": ChartConfig,
+        "credits": CreditsConfig,
         "title": TitleConfig,
         "subtitle": SubtitleConfig,
         "legend": LegendConfig,
