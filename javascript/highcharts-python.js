@@ -14,15 +14,16 @@
 
 (function($){
     $.fn.renderChart = function(url, options) {
-        objects = this;
+        var objects = this;
         options = options || {};
         $.getJSON(url, {}, function(config) {
             config = $.extend(true, config, options);
             config.chart = config.chart || {};
-            $.each(objects.get(), function() {
+            objects.each(function() {
                 config.chart.renderTo = this;
                 new Highcharts.Chart(config); 
             });
         });
+        return this;
     };
 })(jQuery);
