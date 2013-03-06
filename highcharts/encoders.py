@@ -1,3 +1,4 @@
+import datetime, time
 try:
     import simplejson as json
 except ImportError:
@@ -11,6 +12,8 @@ class ObjectEncoder(json.JSONEncoder):
     def default(self, obj):
         if hasattr(obj, 'as_json'):
             return obj.as_json()
+        elif isinstance(obj, (datetime.date, datetime.datetime)):
+            return time.mktime(obj.timetuple()) * 1000
         else:
             return super(ObjectEncoder, self).default(obj)
 
