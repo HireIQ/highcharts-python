@@ -95,7 +95,7 @@ class ScatterSeries(Series):
     '''
     A scatter chart series.
 
-    See http://www.highcharts.com/ref/#plotOptions-pie for available options.
+    See http://www.highcharts.com/ref/#plotOptions-scatter for available options.
     '''
     series_type = 'scatter'
     available_options = ['color']
