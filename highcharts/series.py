@@ -89,3 +89,13 @@ class PieSeries(Series):
     '''
     series_type = 'pie'
     available_options = ['size', 'sliced', 'slicedOffset', 'center']
+
+
+class ScatterSeries(Series):
+    '''
+    A scatter chart series.
+
+    See http://www.highcharts.com/ref/#plotOptions-pie for available options.
+    '''
+    series_type = 'scatter'
+    available_options = ['color']
