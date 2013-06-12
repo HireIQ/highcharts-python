@@ -99,3 +99,13 @@ class ScatterSeries(Series):
     '''
     series_type = 'scatter'
     available_options = ['color']
+
+
+class BarSeries(Series):
+    '''
+    A column chart series.
+
+    See http://www.highcharts.com/ref/#plotOptions-column for available options.
+    '''
+    series_type = 'bar'
+    available_options = ['borderColor', 'borderRadius', 'borderWidth', 'colorByPoint', 'groupPadding', 'minPointLength', 'pointPadding', 'pointWidth']
