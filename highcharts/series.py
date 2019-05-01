@@ -1,7 +1,7 @@
 '''
 The different types of series that can be charted.
 '''
-import types
+from six import string_types
 
 from . import options
 from .common import *
@@ -20,8 +20,8 @@ class Point(DictBacked):
         super(Point, self).__init__(**kwargs)
         if data is None:
             return
-        if not isinstance(data, basestring) and hasattr(data, '__iter__') and len(data) == 2:
-            if isinstance(data[0], basestring):
+        if not isinstance(data, string_types) and hasattr(data, '__iter__') and len(data) == 2:
+            if isinstance(data[0], string_types):
                 self.name = data[0]
             else:
                 self.x = data[0]
@@ -47,7 +47,7 @@ class Series(DictBacked):
     def __setattr__(self, attr, val):
         '''Custom behavior for setting "data"'''
         if attr == 'data':
-            self.options['data'] = [x if isinstance(x, (Point, types.NoneType)) else Point(x) for x in val]
+            self.options['data'] = [x if isinstance(x, Point) or x is None else Point(x) for x in val]
         else:
             super(Series, self).__setattr__(attr, val)
 

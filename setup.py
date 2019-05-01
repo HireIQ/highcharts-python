@@ -7,4 +7,5 @@ setup(
     version='0.4',
     description='Python interface for creating highcharts config objects.',
     packages=['highcharts', 'highcharts.lib'],
+    install_requires=['six'],
 )
