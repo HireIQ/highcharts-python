@@ -1,6 +1,6 @@
 '''Config sections for a chart.'''
-import options
-from common import *
+from . import options
+from .common import *
 
 
 class ChartConfig(ConfigSection):

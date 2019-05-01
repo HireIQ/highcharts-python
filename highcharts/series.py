@@ -1,9 +1,10 @@
 '''
 The different types of series that can be charted.
 '''
-import options
 import types
-from common import *
+
+from . import options
+from .common import *
 
 
 class Point(DictBacked):
@@ -17,7 +18,7 @@ class Point(DictBacked):
 
     def __init__(self, data=None, **kwargs):
         super(Point, self).__init__(**kwargs)
-        if data == None:
+        if data is None:
             return
         if not isinstance(data, basestring) and hasattr(data, '__iter__') and len(data) == 2:
             if isinstance(data[0], basestring):

@@ -1,7 +1,6 @@
-import encoders
-import options
-from common import *
-from config_sections import *
+from . import encoders, options
+from .common import *
+from .config_sections import *
 
 
 class Chart(DictBacked):
